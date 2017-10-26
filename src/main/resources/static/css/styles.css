@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+.jumbotron {
+	background-color: transparent;
+}
+
+._small {
+	height: 400px;
+}
+
+._medium {
+	height: 600px;
+}
+
+._large {
+	height: 800px;
+}
+
+.img-fluid {
+	max-width: 30%;
+}
+
+._right_border {
+	border-right: solid;
+	border-color: #ddd;
+}
