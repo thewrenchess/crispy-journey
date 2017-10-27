@@ -11,7 +11,6 @@ $(document).ready(()=>{
 			obj = JSON.parse(res);
 			
 			if (obj.xVals.length == 0) {
-				console.log("got here");
 				return ;
 			}
 			
@@ -114,40 +113,3 @@ $(document).ready(()=>{
 		}
 	});
 });
-
-//$("#button").on("click", ()=>{
-//$.ajax({
-//    url: "/clicked",
-//    method: "get",
-//    data: "data",
-//    success: (res)=>{
-//    	obj = JSON.parse(res);
-//    	console.log(obj);
-//    	
-//    	$('#main').addClass('_medium')
-//    	
-//        var myChart = echarts.init(document.getElementById('main'));
-//
-//        var option = {
-//                title: {
-//                    text: obj.title
-//                },
-//                tooltip: {},
-//                legend: {
-//                    data:[obj.data]
-//                },
-//                xAxis: {
-//                    data: obj.xAxis
-//                },
-//                yAxis: {},
-//                series: [{
-//                    name: obj.data,
-//                    type: 'bar',
-//                    data: obj.yAxis
-//                }]
-//            };
-//
-//        myChart.setOption(option);
-//    }
-//});
-//});

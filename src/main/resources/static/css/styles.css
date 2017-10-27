@@ -16,6 +16,10 @@
 	height: 800px;
 }
 
+._scroll {
+	overflow: auto;
+}
+
 .img-fluid {
 	max-width: 30%;
 }

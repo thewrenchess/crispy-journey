@@ -11,7 +11,7 @@
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>
 		<script type="text/javascript" src="/js/echarts.min.js"></script>
 		<script type="text/javascript" src="/js/ecStat.js"></script>
-        <script type="text/javascript" src="/js/polyJs.js"></script>
+        <script type="text/javascript" src="/js/histoJs.js"></script>
 		<title><c:out value="${ currGraph.getTitle() }" /></title>
 	</head>
 	<body>
@@ -23,10 +23,10 @@
 					<input type="submit" value="Logout" class="btn btn-danger" />
 				</form>
 			</div>
-			<h1 class="mt-5">Polynomial Regression -- <c:out value="${ currGraph.getTitle() }" /></h1>
+			<h1 class="mt-5">Histogram -- <c:out value="${ currGraph.getTitle() }" /></h1>
 			<div class="row mt-5">
 				<div class="col-2 _right_border _large _scroll">
-					<form:form action="/poly/${ currGraph.getId() }" method="POST" modelAttribute="graph">
+					<form:form action="/histo/${ currGraph.getId() }" method="POST" modelAttribute="graph">
 						<div class="form-group">
 							<form:label path="title">Title</form:label>
 							<form:input path="title" class="form-control" value="${ currGraph.getTitle() }" />
@@ -39,26 +39,23 @@
 						<input type="submit" value="Update" class="form-control btn btn-primary" />
 					</form:form>
 					<hr>
-					<form:form action="/poly/addVal" method="POST" modelAttribute="pairs">
+					<form:form action="/histo/addVal" method="POST" modelAttribute="value">
 						<table class="table">
 							<thead>
 								<tr>
-									<th class="text-center">X</th>
-									<th class="text-center">Y</th>
+									<th class="text-center">Values</th>
 									<th></th>
 								</tr>
 							</thead>
 								<tbody>
 									<c:forEach items="${ values }" var="v">
 										<tr>
-											<td class="text-center"><c:out value="${ v.getX() }" /></td>
-											<td class="text-center"><c:out value="${ v.getY() }" /></td>
-											<td><a href="/poly/delete/${ v.getId() }">x</a></td>
+											<td class="text-center"><c:out value="${ v.getVal() }" /></td>
+											<td><a href="/histo/delete/${ v.getId() }">x</a></td>
 										</tr>
 									</c:forEach>
 									<tr>
-										<td><form:input type="number" step="0.01" class="form-control text-center" path="x" /></td>
-										<td><form:input type="number" step="0.01" class="form-control text-center" path="y" /></td>
+										<td><form:input type="number" step="0.01" class="form-control text-center" path="val" /></td>
 										<td></td>
 									</tr>
 								</tbody>

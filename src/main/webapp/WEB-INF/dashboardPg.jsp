@@ -28,17 +28,22 @@
 						<th>Title</th>
 						<th>Type</th>
 						<th>Last Updated</th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${ graphs }" var="g" >
 						<tr>
-							<td><a href="/poly/${ g.getId() }" ><c:out value="${ g.getTitle() }" /></a></td>
+							<td><a href="/graphs/${ g.getId() }" ><c:out value="${ g.getTitle() }" /></a><%-- <c:choose>
+								<c:when test="${ g.getType() = 'Histogram' }" ><a href="/histo/${ g.getId() }" ><c:out value="${ g.getTitle() }" /></a></c:when>
+								<c:otherwise><a href="/poly/${ g.getId() }" ><c:out value="${ g.getTitle() }" /></a></c:otherwise>
+							</c:choose> --%></td>
 							<td><c:out value="${ g.getType() }" /></td>
 							<td><c:choose>
 								<c:when test="${ g.getUpdatedAt() != null }" ><c:out value="${ g.getUpdatedAt() }" /></c:when>
 								<c:otherwise><c:out value="${ g.getCreatedAt() }" /></c:otherwise>
 							</c:choose></td>
+							<td><a href="/graphs/delete/${ g.getId() }" >delete</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>
